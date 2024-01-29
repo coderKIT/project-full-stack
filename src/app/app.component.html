@@ -4,7 +4,7 @@
     </div>
     <div class="login-box">
         <h2>{{ displayInsuranceHeader }} </h2>
-        <form #addMotorInsuranceForm="NgForm" (ngSubmit)="onAddMotorInsurance(addMotorInsuranceForm)">
+        <form #addMotorInsuranceForm="ngForm" (ngSubmit)="onAddMotorInsurance(addMotorInsuranceForm)">
           <div class="user-box">
             <input type="text" name="" required="">
             <label>Vehicle Number</label>

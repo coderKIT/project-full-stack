@@ -6,7 +6,8 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  standalone:true,
 })
 
 export class AppComponent implements OnInit {
