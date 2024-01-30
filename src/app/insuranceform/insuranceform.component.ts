@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MotorInsuranceModel, TravelInsuranceModel } from './insurance';
-import { InsuranceService } from './insurance.service'
+import { MotorInsuranceModel, TravelInsuranceModel } from '../insurance';
+import { InsuranceService } from '../insurance.service'
 import { NgForm } from '@angular/forms';
+import { response } from 'express';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  standalone:false,
+  selector: 'app-insuranceform',
+  standalone: false,
+  templateUrl: './insuranceform.component.html',
+  styleUrl: './insuranceform.component.css'
 })
-
-export class AppComponent implements OnInit {
+export class InsuranceformComponent implements OnInit{
   public motorInsurances: MotorInsuranceModel[] = [];
   public travelInsurances: TravelInsuranceModel[] = [];
   public displayInsuranceHeader = "INSURANCE";
@@ -42,6 +43,14 @@ export class AppComponent implements OnInit {
   }
 
   public onAddMotorInsurance(addMotorInsuranceForm : NgForm): void {
-
+      this.insuranceService.addMotorInsurance(addMotorInsuranceForm.value).subscribe(
+        (response: MotorInsuranceModel) => {
+          console.log(response);
+          this.getInsurances();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        },
+      );
   }
 }

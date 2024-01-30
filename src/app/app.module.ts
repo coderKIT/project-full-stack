@@ -5,9 +5,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
+import { InsuranceformComponent } from "./insuranceform/insuranceform.component";
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [InsuranceformComponent],
     imports: [
         HttpClientModule,
         BrowserModule,
@@ -15,6 +16,6 @@ import { AppComponent } from "./app.component";
         FormsModule
             ],
     providers: [InsuranceService,HttpClientModule],
-    bootstrap: [AppComponent]
+    bootstrap: [InsuranceformComponent]
 })
 export class AppModule {}

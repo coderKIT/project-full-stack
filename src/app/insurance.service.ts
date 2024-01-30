@@ -11,15 +11,17 @@ export class InsuranceService {
     constructor(private http: HttpClient) { }
 
     public getMotorInsurance(): Observable<MotorInsuranceModel[]> {
-        return this.http.get<MotorInsuranceModel[]>(`${this.apiServerUrl}/insurance/findmotorinsurance/id`)
+        return this.http.get<MotorInsuranceModel[]>(`${this.apiServerUrl}`)
+        // return this.http.get<MotorInsuranceModel[]>(`${this.apiServerUrl}/insurance/findmotorinsurance/id`)
     }
 
     public getTravelInsurance(): Observable<TravelInsuranceModel[]> {
-        return this.http.get<TravelInsuranceModel[]>(`${this.apiServerUrl}/insurance/findtravelinsurance/id`)
+        return this.http.get<TravelInsuranceModel[]>(`${this.apiServerUrl}`)
+        // return this.http.get<TravelInsuranceModel[]>(`${this.apiServerUrl}/insurance/findtravelinsurance/id`)
     }
 
     public addMotorInsurance(motorInsurance : MotorInsuranceModel): Observable<MotorInsuranceModel> {
-        return this.http.post<MotorInsuranceModel>(`${this.apiServerUrl}/insurance/addinsurance/{insuranceType}`, motorInsurance)
+       return this.http.post<MotorInsuranceModel>(`${this.apiServerUrl}/insurance/addinsurance/{insuranceType}`, motorInsurance)
     }
 
     public addTravelInsurance(travelInsurance : TravelInsuranceModel): Observable<TravelInsuranceModel> {

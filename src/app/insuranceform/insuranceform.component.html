@@ -1,0 +1,24 @@
+<div>
+    <button ng-model="" (click)="showInsuranceType('motor')">BUY MOTOR INSURANCE</button>
+    <button ng-model="" (click)="showInsuranceType('travel')">BUY TRAVEL INSURANCE</button>
+</div>
+<div class="login-box">
+    <h2>{{ displayInsuranceHeader }} </h2>
+    <form #addMotorInsuranceForm="ngForm" (ngSubmit)="onAddMotorInsurance(addMotorInsuranceForm)">
+      <div class="user-box">
+        <input type="text" ngModel name="vehicleNumber" required="" id="vehicleNumber">
+        <label>Vehicle Number</label>
+      </div>
+      <div class="user-box">
+        <input type="text" ngModel name="identityNo" required="" id="identityNo">
+        <label>Identity No</label>
+      </div>
+      <div class="user-box">
+        <input type="text" ngModel name="email" required="" id="email">
+        <label>Email</label>
+      </div>
+      <button [disabled]="addMotorInsuranceForm.invalid" type="submit">
+        purchase
+      </button>
+    </form>
+</div>
