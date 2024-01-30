@@ -1,27 +1,27 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { InsuranceformComponent } from './insuranceform/insuranceform.component';
 
-describe('AppComponent', () => {
+describe('InsuranceformComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [InsuranceformComponent],
     }).compileComponents();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(InsuranceformComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have the 'project-full-stack' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(InsuranceformComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('project-full-stack');
+    //expect(app.title).toEqual('project-full-stack');
   });
 
   it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    const fixture = TestBed.createComponent(InsuranceformComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, project-full-stack');

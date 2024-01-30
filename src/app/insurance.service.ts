@@ -11,21 +11,21 @@ export class InsuranceService {
     constructor(private http: HttpClient) { }
 
     public getMotorInsurance(): Observable<MotorInsuranceModel[]> {
-        return this.http.get<MotorInsuranceModel[]>(`${this.apiServerUrl}`)
-        // return this.http.get<MotorInsuranceModel[]>(`${this.apiServerUrl}/insurance/findmotorinsurance/id`)
+        return this.http.get<MotorInsuranceModel[]>(`${this.apiServerUrl}/insurance/getallinsurance`)
     }
 
     public getTravelInsurance(): Observable<TravelInsuranceModel[]> {
-        return this.http.get<TravelInsuranceModel[]>(`${this.apiServerUrl}`)
-        // return this.http.get<TravelInsuranceModel[]>(`${this.apiServerUrl}/insurance/findtravelinsurance/id`)
+        return this.http.get<TravelInsuranceModel[]>(`${this.apiServerUrl}/insurance/getallinsurance`)
     }
 
     public addMotorInsurance(motorInsurance : MotorInsuranceModel): Observable<MotorInsuranceModel> {
-       return this.http.post<MotorInsuranceModel>(`${this.apiServerUrl}/insurance/addinsurance/{insuranceType}`, motorInsurance)
+       let randId = Math.floor(Math.random() * 10)
+       motorInsurance.id = randId;
+       return this.http.post<MotorInsuranceModel>(`${this.apiServerUrl}/insurance/addinsurance/motor`, motorInsurance)
     }
 
     public addTravelInsurance(travelInsurance : TravelInsuranceModel): Observable<TravelInsuranceModel> {
-        return this.http.post<TravelInsuranceModel>(`${this.apiServerUrl}/insurance/addinsurance/{insuranceType}`, travelInsurance)
+        return this.http.post<TravelInsuranceModel>(`${this.apiServerUrl}/insurance/addinsurance/travel`, travelInsurance)
     }
 
     public addInsurance(motorInsurance : MotorInsuranceModel, travelInsurance : TravelInsuranceModel, insuranceType : String): Observable<void> {

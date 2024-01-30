@@ -3,12 +3,12 @@ import { NgModule } from "@angular/core";
 import { InsuranceService } from "./insurance.service";
 import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
-import { AppComponent } from "./app.component";
+import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { InsuranceformComponent } from "./insuranceform/insuranceform.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
-    declarations: [InsuranceformComponent],
+    declarations: [],
     imports: [
         HttpClientModule,
         BrowserModule,
@@ -16,6 +16,7 @@ import { InsuranceformComponent } from "./insuranceform/insuranceform.component"
         FormsModule
             ],
     providers: [InsuranceService,HttpClientModule],
-    bootstrap: [InsuranceformComponent]
+    exports:[],
+    bootstrap: []
 })
 export class AppModule {}
